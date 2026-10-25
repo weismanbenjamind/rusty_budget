@@ -1,0 +1,16 @@
+.zed/
+cfg/*
+src/bin/test_*
+jobs/*
+/target
+TODO
+app_goals.txt
+db
+.vscode
+outputs/*
+clippy_output.log
+cfg/prd_budget_cfg.yml
+.venv
+*.ipynb
+.old
+

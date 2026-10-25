@@ -1,0 +1,21 @@
+# Process for generating release
+
+- [ ] Create branch off `master` with name `pre-release-prep-<version-number>`
+- [ ] Bump version in `cargo.toml` to `<version-number>`
+- [ ] Bump `VERSION` constant in `src/lib.rs` to `<version-number>`
+- [ ] Update the `## Unreleased` section in the `CHANGELOG.md` to `<version-number>`
+- [ ] Run `./scripts/run_formatter.sh` and commit any formatting changes
+- [ ] Run `./scripts/run_clippy.sh`, resolve all linting errors, and commit any changes
+- [ ] Run `./scripts/run_clippy.sh --release` and resolve all linting errors, resolve all linting errors, and commit any changes
+- [ ] Run `cargo test` and ensure all tests pass
+- [ ] Commit changes
+- [ ] Merge `pre-release-prep-<version-number>` branch into `master`
+- [ ] Delete the `pre-release-prep-<version-number>` branch
+- [ ] Run `cargo build --release` and move the `./target/release/rusty_budget` binary to the desired production environment
+- [ ] Create new branch at `v<release-version-number>`
+- [ ] Create tag this commit at `v<release-version-number>` titled `v<release-version-number>`
+- [ ] Checkout the `master` branch
+- [ ]  Bump version in `cargo.toml` to `<version-number-bumped-by-minor>-dev.0`
+- [ ]  Bump `VERSION` constant in `src/lib.rs` to `<version-number-bumped-by-minor>-dev.0`
+- [ ] Add a new `## Unreleased` section in the `CHANGELOG.md` file
+- [ ] Commit these changes into `master`
